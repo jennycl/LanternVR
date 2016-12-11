@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>fishing</title>
+    <!-- P5 libraries -->
+    <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
+
+    <!-- A-Frame libraries -->
+    <script language="javascript" type="text/javascript" src="libraries/aframe.min.js"></script>
+
+    <!-- Craig's A-Frame Wrapper API -->
+    <script language="javascript" type="text/javascript" src="libraries/aframep5.js"></script>
+
+    <!-- Light API -->
+    <!--<script language="javascript" type="text/javascript" src="libraries/three.min.js"></script>-->
+
+    <!-- P5 Sketch -->
+    <script language="javascript" type="text/javascript" src="sketch.js"></script>
+
+    <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>
+  </head>
+  <body>
+    <!-- container to hold our VR scene -->
+    <a-scene id="VRScene">
+      <a-assets id="VRAssets">
+        <img id="portal" src="images/portal-gate.png">
+        <img id="city_sky" src="images/city-night.jpg">
+        <img id="space_sky" src="images/space.png">
+      </a-assets>
+      <!-- define the sky for this scene -->
+      <a-sky id="sky" src="#city_sky"></a-sky>
+    </a-scene>
+  </body>
+</html>
