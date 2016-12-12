@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>fishing-game</title>
+    <!-- P5 libraries -->
+    <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
+
+    <!-- A-Frame libraries -->
+    <script language="javascript" type="text/javascript" src="libraries/aframe.min.js"></script>
+
+    <!-- Craig's A-Frame Wrapper API -->
+    <script language="javascript" type="text/javascript" src="libraries/aframep5.js"></script>
+
+    <!-- Light API -->
+    <!--<script language="javascript" type="text/javascript" src="libraries/three.min.js"></script>-->
+
+    <!-- P5 Sketch -->
+    <script language="javascript" type="text/javascript" src="sketch.js"></script>
+
+    <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>
+  </head>
+  <body>
+    <!-- container to hold our VR scene -->
+    <a-scene id="VRScene">
+      <a-assets id="VRAssets">
+        <img src="images/water-in.png" id='inWater'>
+        <a-asset id="model" src="images/fishing-rod/model.dae"></a-asset>
+      </a-assets>
+      <!-- define the sky for this scene -->
+      <a-sky id="water" src="images/water-in.png"></a-sky>
+    </a-scene>
+  </body>
+</html>
