@@ -18,8 +18,10 @@ var c3Clicked = false;
 var c4Clicked = false;
 
 var containerArray = []; 
-
 var burstBalloon = 0; 
+
+var hasKey = false; 
+var getKey;
 
 function setup() {
   
@@ -32,7 +34,7 @@ function setup() {
 
   // ************** Jenny's world's variables ************** // 
 	// ------------------------------------ 1st spinny thing 
-	container1 = new Container3D({x:0, y:5, z:0});
+	container1 = new Container3D({x:0, y:5, z:-10});
 	//world.add(container1);
 	
 	var b1 = new Circle({
@@ -53,7 +55,7 @@ function setup() {
 	container1.addChild(b1);
 
   // ------------------------------------ 2nd spinny thing 
-  container2 = new Container3D({x:0, y:5, z:0});
+  container2 = new Container3D({x:0, y:5, z:-10});
   //	world.add(container2);
 
 	var b2 = new Circle({
@@ -75,7 +77,7 @@ function setup() {
 	container2.addChild(b2);
 	
 	// ------------------------------------ 3rd spinny thing 
-	container3 = new Container3D({x:0, y:5, z:0});
+	container3 = new Container3D({x:0, y:5, z:-10});
   //	world.add(container3);
 	var b3 = new Circle({
 						x:0, y:3.5, z:0,
@@ -95,7 +97,7 @@ function setup() {
 	container3.addChild(b3);
 	
 	// ------------------------------------ 1.5st spinny thing 	
-	container4 = new Container3D({x:0, y:5, z:0});
+	container4 = new Container3D({x:0, y:5, z:-10});
 	//world.add(container4);
 	
 	var b4 = new Circle({
@@ -158,7 +160,7 @@ function draw() {
          i-=1;
        }
        if (hasKey == false){
-          getKey = new GoldenKey(0, 5, -2);
+          getKey = new GoldenKey(0, 5, -20);
           hasKey = true;
        }else{
           getKey.move();
@@ -180,19 +182,22 @@ function Portal(x,y,z){
     asset:'portal',
     
     clickFunction: function(thePortal){
-      //world.slideToObject(thePortal,1000);
-      current_sky = 1;
-      state = 1; 
+      world.slideToObject(thePortal, 1000, function(){
+        current_sky = 1; 
+        state =1;
+        //world.setUserPosition(0,0,0);
+      })
     }
   });
   world.add(this.portal);
 }
 
-var keyPos = -5; 
+var keyPos = -15; 
+
 function GoldenKey(x, y, z){
   
   this.goldenKey = new Plane({
-	  	x:0, y:1, z: keyPos,
+	  	x:0, y:5, z: keyPos,
 	  	asset: 'goldenKey',
       transparent: true,
       rotationZ: 270,
@@ -202,10 +207,9 @@ function GoldenKey(x, y, z){
 	
  world.add(this.goldenKey);
  this.zOffset = random(2000, 3000);
-  var z = 0.03; 
+  var z = 0.05; 
   
 	this.move = function(){
-	  
 	  if (z != -0.5){
       this.goldenKey.nudge(0, 0, z);
 	  }
